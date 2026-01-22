@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood-Based Song Recommender</title>
+    <meta name="description" content="Get personalized song recommendations based on your current mood and intensity level">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🎵 Mood-Based Song Recommender</h1>
+            <p class="subtitle">Discover the perfect songs for your current mood</p>
+        </header>
+
+        <!-- Mood Selection Section -->
+        <section class="mood-selection" id="moodSection">
+            <h2>Select Your Mood</h2>
+            <div class="mood-grid">
+                <div class="mood-card" data-mood="Happy">
+                    <div class="mood-icon">😊</div>
+                    <h3>Happy</h3>
+                    <p>Feeling joyful and cheerful</p>
+                </div>
+                <div class="mood-card" data-mood="Sad">
+                    <div class="mood-icon">😢</div>
+                    <h3>Sad</h3>
+                    <p>Feeling down or melancholic</p>
+                </div>
+                <div class="mood-card" data-mood="Romantic">
+                    <div class="mood-icon">💕</div>
+                    <h3>Romantic</h3>
+                    <p>Feeling loving and affectionate</p>
+                </div>
+                <div class="mood-card" data-mood="Energetic">
+                    <div class="mood-icon">⚡</div>
+                    <h3>Energetic</h3>
+                    <p>Feeling pumped and motivated</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intensity Selection Section -->
+        <section class="intensity-selection hidden" id="intensitySection">
+            <h2>Select Intensity Level</h2>
+            <div class="intensity-buttons">
+                <button class="intensity-btn" data-intensity="Low">
+                    <span class="intensity-label">Low</span>
+                    <span class="intensity-desc">Subtle and gentle</span>
+                </button>
+                <button class="intensity-btn" data-intensity="Medium">
+                    <span class="intensity-label">Medium</span>
+                    <span class="intensity-desc">Balanced and moderate</span>
+                </button>
+                <button class="intensity-btn" data-intensity="High">
+                    <span class="intensity-label">High</span>
+                    <span class="intensity-desc">Intense and powerful</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results hidden" id="resultsSection">
+            <div class="results-header">
+                <h2>Your Personalized Playlist</h2>
+                <p class="selected-mood" id="selectedMoodText"></p>
+            </div>
+
+            <!-- Song List -->
+            <div class="songs-container">
+                <h3>Recommended Songs</h3>
+                <ul class="song-list" id="songList"></ul>
+            </div>
+
+            <!-- Surprise Song -->
+            <div class="surprise-song" id="surpriseSong">
+                <div class="surprise-header">
+                    <span class="surprise-icon">🎁</span>
+                    <h3>Surprise Song Just For You!</h3>
+                    <span class="surprise-icon">🎁</span>
+                </div>
+                <p class="surprise-song-name" id="surpriseSongName"></p>
+            </div>
+
+            <!-- Quote -->
+            <div class="quote-container" id="quoteContainer">
+                <div class="quote-icon">💭</div>
+                <p class="quote-text" id="quoteText"></p>
+            </div>
+
+            <!-- Mood Change Prompt -->
+            <div class="mood-change-prompt">
+                <p>Do you want songs to change your mood?</p>
+                <div class="mood-change-buttons">
+                    <button class="btn btn-yes" id="btnYes">Yes, Lift My Spirits! 🌟</button>
+                    <button class="btn btn-no" id="btnNo">No, Thanks</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Happy Songs Section (for mood change) -->
+        <section class="happy-songs hidden" id="happySongsSection">
+            <div class="happy-header">
+                <h2>🌟 Happy Songs to Lift Your Spirits! 🌟</h2>
+            </div>
+            <div class="songs-container">
+                <ul class="song-list" id="happySongList"></ul>
+            </div>
+            <div class="quote-container">
+                <div class="quote-icon">💭</div>
+                <p class="quote-text" id="happyQuoteText"></p>
+            </div>
+            <button class="btn btn-restart" id="btnRestart">Start Over</button>
+        </section>
+
+        <!-- Thank You Section -->
+        <section class="thank-you hidden" id="thankYouSection">
+            <div class="thank-you-content">
+                <h2>Thank You! 🎵</h2>
+                <p>Keep listening and stay awesome! ✨</p>
+                <button class="btn btn-restart" id="btnRestart2">Start Over</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
